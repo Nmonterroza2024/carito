@@ -159,7 +159,7 @@ while len(colores_semanas) < len(semanas):
 
 col1, col2 = st.columns(2)
 with col1:
-    st.subheader("Ingresos por Día (Treemap)")
+    
     fig1, ax1 = plt.subplots(figsize=(6, 4))
     squarify.plot(
         sizes=valores_dias,
@@ -175,7 +175,7 @@ with col1:
     st.pyplot(fig1)
 
 with col2:
-    st.subheader(" Ingresos por Semana")
+
     fig2, ax2 = plt.subplots(figsize=(6, 4))
     ax2.bar(
         semanas,

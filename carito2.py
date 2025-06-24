@@ -173,7 +173,7 @@ with col1:
 
     # Ajustes de estilo
     figi.update_layout(
-        title="Por Día de la Semana",
+        title="Día de la Semana",
         margin=dict(t=50, l=25, r=25, b=25)
     )
 

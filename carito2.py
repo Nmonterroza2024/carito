@@ -159,7 +159,7 @@ while len(colores_semanas) < len(semanas):
 
 col1, col2 = st.columns(2)
 with col1:
-    
+
     fig1, ax1 = plt.subplots(figsize=(6, 4))
     squarify.plot(
         sizes=valores_dias,
@@ -250,7 +250,7 @@ figcalorv = px.imshow(
     labels=dict(x="Semana del año", y="Día de la semana", color="Número de ingresos"),
     x=tabla.columns,
     y=tabla.index,
-    color_continuous_scale='YlOrRd',  # Escala de colores similar
+    color_continuous_scale='Pastel2',  # Escala de colores similar
     text_auto=True  # Muestra valores como en annot=True
 )
 

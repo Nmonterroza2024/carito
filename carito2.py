@@ -163,7 +163,7 @@ df_dias = pd.DataFrame({
 })
 col1, col2 = st.columns(2)
 with col1:
-    fig = px.treemap(
+    figi = px.treemap(
         df_dias,
         path=["Día"],  # Categoría principal
         values="Ingresos",  # Tamaño de cada rectángulo
@@ -172,13 +172,13 @@ with col1:
     )
 
     # Ajustes de estilo
-    fig.update_layout(
+    figi.update_layout(
         title="Por Día de la Semana",
         margin=dict(t=50, l=25, r=25, b=25)
     )
 
     # Mostrar en Streamlit
-    st.plotly_chart(fig, use_container_width=True)
+    st.plotly_chart(figi, use_container_width=True)
 
 with col2:
 
@@ -201,7 +201,7 @@ col1, col2 = st.columns(2)
 
 # -------- GRÁFICO 1: Ingresos por MES (Dona) --------
 with col1:
-    
+
     fig1, ax1 = plt.subplots(figsize=(5, 5))
     wedges, texts, autotexts = ax1.pie(
         sizes,

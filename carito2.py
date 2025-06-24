@@ -201,7 +201,7 @@ col1, col2 = st.columns(2)
 
 # -------- GRÁFICO 1: Ingresos por MES (Dona) --------
 with col1:
-    st.subheader(" Ingresos por Mes")
+    
     fig1, ax1 = plt.subplots(figsize=(5, 5))
     wedges, texts, autotexts = ax1.pie(
         sizes,

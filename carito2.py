@@ -245,7 +245,7 @@ tabla = tabla.reindex(index=dias_ordenados)
 
 
 
-figcalor = px.imshow(
+figcalorv = px.imshow(
     tabla.values,
     labels=dict(x="Semana del año", y="Día de la semana", color="Número de ingresos"),
     x=tabla.columns,
@@ -254,7 +254,7 @@ figcalor = px.imshow(
     text_auto=True  # Muestra valores como en annot=True
 )
 
-figcalor.update_layout(
+figcalorv.update_layout(
     title="Ingresos registrados por docentes ",
     title_font_size=16,
     title_font=dict(family='Arial', size=16, color='black'),
@@ -263,7 +263,7 @@ figcalor.update_layout(
     margin=dict(l=50, r=50, t=80, b=50)
 )
 
-st.plotly_chart(figcalor, use_container_width=True)
+st.plotly_chart(figcalorv, use_container_width=True)
 
 
 st.title("Información del departamento de matematicas y estaditicas")

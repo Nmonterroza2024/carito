@@ -226,7 +226,7 @@ with col2:
                        )
     st.plotly_chart(fig_time, use_container_width=True)
 
-st.title("📌 Información del departamento de matematicas y estaditicas")
+st.title("Información del departamento de matematicas y estaditicas")
 
 st.subheader(" Ingresos registrados por docentes")
 

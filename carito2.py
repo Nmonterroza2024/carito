@@ -32,7 +32,7 @@ with col3:
         st.write("**Presentado por:** Ana Carolina Florez Cleto")
 with col4:
         st.write("**Fuentes de datos:** Bases de datos de estudiantes y profesores.")
-st.title("Indicadores de uso de la plataforma Cintia")
+#st.title("Indicadores de uso de la plataforma Cintia")
 df =pd.read_csv("ingresos_plataforma_2024_2.csv", sep=';')
 
 total_ingresos = len(df)

@@ -23,7 +23,7 @@ st.expander("x")
 
 col3, col4 = st.columns(2)
 with col3:
-        st.write("**Presentado por:** Nilson Monterroza Vega")
+        st.write("**Presentado por:** Ana Carolina Florez Cleto")
 with col4:
         st.write("**Fuentes de datos:** Bases de datos de estudiantes y profesores.")
 st.title("Indicadores de uso de la plataforma Cintia")

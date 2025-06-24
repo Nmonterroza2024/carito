@@ -157,28 +157,22 @@ colores_semanas = [
 while len(colores_semanas) < len(semanas):
     colores_semanas += colores_semanas
 
-df_dias = pd.DataFrame({
-    "Día": etiquetas_dias,
-    "Ingresos": valores_dias
-})
 col1, col2 = st.columns(2)
 with col1:
-    figi = px.treemap(
-        df_dias,
-        path=["Día"],  # Categoría principal
-        values="Ingresos",  # Tamaño de cada rectángulo
-        color="Ingresos",  # Colorear por número de ingresos
-        color_continuous_scale='Pastel'  # Escala de colores pastel (puedes probar otras)
-    )
 
-    # Ajustes de estilo
-    figi.update_layout(
-        title="Día de la Semana",
-        margin=dict(t=50, l=25, r=25, b=25)
+    fig1, ax1 = plt.subplots(figsize=(6, 4))
+    squarify.plot(
+        sizes=valores_dias,
+        label=etiquetas_dias,
+        color=colores_dias,
+        alpha=0.9,
+        edgecolor="white",
+        text_kwargs={'fontsize': 10, 'weight': 'bold'},
+        ax=ax1
     )
-
-    # Mostrar en Streamlit
-    st.plotly_chart(figi, use_container_width=True)
+    ax1.set_title("Por Día de la Semana", fontsize=14)
+    ax1.axis('off')
+    st.pyplot(fig1)
 
 with col2:
 

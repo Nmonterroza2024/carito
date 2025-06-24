@@ -10,7 +10,7 @@ import plotly.express as px
 col1, col2 = st.columns([1, 1])
 
 with col1:
-    st.title("Indicadores de uso de la plataforma Cintia.")
+    st.title("Análisis de datos de ingreso a CINTIA para el periodo 2024-2.")
 
 with col2:
     st.image("CINTIA-LOGO.png", width=150)
@@ -18,6 +18,12 @@ with col2:
 with st.expander("📊Objetivo del análisis"):
     st.write(
             "Visualizar  los indicadores clave de la plataforma CINTIA de manera eficiente, facilitando la automatización de los informes semestrales y mejorando la toma de decisiones en base al uso de los recursos académicos por parte de estudiantes y profesores.")
+
+st.expander("x")
+
+with st.expander("Introducción"):
+    st.write(
+            "El Centro de Innovación en TIC para Apoyo a la Academia (CINTIA), que forma parte de la Vicerrectoría Académica, fue establecido con el objetivo de apoyar los procesos fundamentales de la institución. Su actividad se enfoca en la integración, el uso pedagógico, la apropiación, la investigación y la innovación en Tecnologías de la Información y la Comunicación (TIC). Todo ello se enmarca dentro de una estrategia institucional diseñada para mejorar la calidad de los procesos de enseñanza, investigación y extensión.")
 
 st.expander("x")
 

@@ -250,7 +250,7 @@ figcalorv = px.imshow(
     labels=dict(x="Semana del año", y="Día de la semana", color="Número de ingresos"),
     x=tabla.columns,
     y=tabla.index,
-    color_continuous_scale='Set3',  # Escala de colores similar
+    color_continuous_scale='YlOrRd',  # Escala de colores similar
     text_auto=True  # Muestra valores como en annot=True
 )
 

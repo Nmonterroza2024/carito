@@ -159,7 +159,7 @@ while len(colores_semanas) < len(semanas):
 
 col1, col2 = st.columns(2)
 with col1:
-    st.subheader("📅 Ingresos por Día (Treemap)")
+    st.subheader("Ingresos por Día (Treemap)")
     fig1, ax1 = plt.subplots(figsize=(6, 4))
     squarify.plot(
         sizes=valores_dias,
@@ -175,7 +175,7 @@ with col1:
     st.pyplot(fig1)
 
 with col2:
-    st.subheader("📈 Ingresos por Semana")
+    st.subheader(" Ingresos por Semana")
     fig2, ax2 = plt.subplots(figsize=(6, 4))
     ax2.bar(
         semanas,
@@ -195,7 +195,7 @@ col1, col2 = st.columns(2)
 
 # -------- GRÁFICO 1: Ingresos por MES (Dona) --------
 with col1:
-    st.subheader("📆 Ingresos por Mes")
+    st.subheader(" Ingresos por Mes")
     fig1, ax1 = plt.subplots(figsize=(5, 5))
     wedges, texts, autotexts = ax1.pie(
         sizes,
@@ -226,9 +226,9 @@ with col2:
                        )
     st.plotly_chart(fig_time, use_container_width=True)
 
-st.title("📌 Información del departamento de matematicas y estditicas")
+st.title("📌 Información del departamento de matematicas y estaditicas")
 
-st.subheader("📚 Ingresos registrados por docentes (filtrados por 'id')")
+st.subheader(" Ingresos registrados por docentes")
 
 df.loc[
     df['user_department'].str.contains("Departamento De Matemáticas Y Estadístic|Estadística|ESTADÍSTICA|Matemáticas|MATEMATICA Y ESTADISTICA", case=False, na=False),
@@ -238,7 +238,7 @@ df_ingresos = df.groupby(['idnumber', 'user_department']).size().reset_index(
                 name='num_ingresos')
 data_filtrada_est_box = df_ingresos[df_ingresos['user_department'] =="Departamento de Matemáticas y Estadística"]
 fig_boxplot_est = px.box(data_filtrada_est_box, x='user_department', y='num_ingresos', color='user_department',
-                                     title='Distribución de Accesos por Programa (Estudiantes)',
+                                     title='Distribución de Accesos por Departamento (Profesores)',
                                      labels={'num_ingresos': 'Accesos a Plataforma', 'user_department': 'Facultad'},
                                      points='outliers', hover_data=['idnumber'],
                                      color_discrete_sequence=[px.colors.qualitative.Pastel[2]])

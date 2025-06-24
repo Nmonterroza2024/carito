@@ -157,22 +157,28 @@ colores_semanas = [
 while len(colores_semanas) < len(semanas):
     colores_semanas += colores_semanas
 
+df_dias = pd.DataFrame({
+    "Día": etiquetas_dias,
+    "Ingresos": valores_dias
+})
 col1, col2 = st.columns(2)
 with col1:
-
-    fig1, ax1 = plt.subplots(figsize=(6, 4))
-    squarify.plot(
-        sizes=valores_dias,
-        label=etiquetas_dias,
-        color=colores_dias,
-        alpha=0.9,
-        edgecolor="white",
-        text_kwargs={'fontsize': 10, 'weight': 'bold'},
-        ax=ax1
+    fig = px.treemap(
+        df_dias,
+        path=["Día"],  # Categoría principal
+        values="Ingresos",  # Tamaño de cada rectángulo
+        color="Ingresos",  # Colorear por número de ingresos
+        color_continuous_scale='Pastel'  # Escala de colores pastel (puedes probar otras)
     )
-    ax1.set_title("Por Día de la Semana", fontsize=14)
-    ax1.axis('off')
-    st.pyplot(fig1)
+
+    # Ajustes de estilo
+    fig.update_layout(
+        title="Por Día de la Semana",
+        margin=dict(t=50, l=25, r=25, b=25)
+    )
+
+    # Mostrar en Streamlit
+    st.plotly_chart(fig, use_container_width=True)
 
 with col2:
 

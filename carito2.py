@@ -226,6 +226,46 @@ with col2:
                        )
     st.plotly_chart(fig_time, use_container_width=True)
 
+df_docentes = df[df['id'].notna() & (df['id'].astype(str).str.strip() != '')].copy()
+
+# --- Asegurar que 'timecreated' sea fecha ---
+df_docentes['timecreated'] = pd.to_datetime(df_docentes['timecreated'], errors='coerce')
+
+# --- Crear columnas de semana y día ---
+df_docentes['semana'] = df_docentes['timecreated'].dt.strftime('%U')  # semana del año
+df_docentes['dia_semana'] = df_docentes['timecreated'].dt.dayofweek.map({
+    0: 'Lunes', 1: 'Martes', 2: 'Miércoles',
+    3: 'Jueves', 4: 'Viernes', 5: 'Sábado', 6: 'Domingo'
+})
+
+# --- Crear tabla para heatmap ---
+dias_ordenados = ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo']
+tabla = pd.crosstab(df_docentes['dia_semana'], df_docentes['semana'])
+tabla = tabla.reindex(index=dias_ordenados)
+
+
+
+figcalor = px.imshow(
+    tabla.values,
+    labels=dict(x="Semana del año", y="Día de la semana", color="Número de ingresos"),
+    x=tabla.columns,
+    y=tabla.index,
+    color_continuous_scale='YlOrRd',  # Escala de colores similar
+    text_auto=True  # Muestra valores como en annot=True
+)
+
+figcalor.update_layout(
+    title="Ingresos registrados por docentes ",
+    title_font_size=16,
+    title_font=dict(family='Arial', size=16, color='black'),
+    xaxis_title="Semana del año",
+    yaxis_title="Día de la semana",
+    margin=dict(l=50, r=50, t=80, b=50)
+)
+
+st.plotly_chart(figcalor, use_container_width=True)
+
+
 st.title("Información del departamento de matematicas y estaditicas")
 
 st.subheader(" Ingresos registrados por docentes")
